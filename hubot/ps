@@ -1,0 +1,7 @@
+#!/bin/bash
+pidname=$1
+PROCESS=`ps -ef|grep $pidname|grep -v grep|grep -v PPID|awk '{ print $2,$9}'`
+for i in $PROCESS
+do
+  echo $i
+done

@@ -1,0 +1,4 @@
+cd /home/zhangyi
+ip=$(curl ifconfig.me)
+
+echo $ip

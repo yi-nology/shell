@@ -1,0 +1,28 @@
+#!/bin/zsh
+port_start=50000
+port_end=50100
+ip=$(curl ifconfig.me)
+if [ ! -n "$1" ];then
+	port=50000
+	host="$ip"
+else
+	port=$1
+fi
+if [ $port -lt $port_end ] && [ $port -ge $port_start ];then    
+                host="$ip"
+        else
+		host=$(ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6 | awk '{print $2}' | tr -d "addr:")
+fi
+echo "$host:$port"
+for file in *
+do
+	if [ -d "$file" ];then 
+		  echo "$host:$port/$file"
+	elif [ -f "$file" ];then
+		  echo "$host:$port/$file"
+	fi
+done
+cd /home/zhangyi
+python3 -m http.server $port
+
+
