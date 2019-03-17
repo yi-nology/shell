@@ -1,2 +1,11 @@
-git config --global user.name "zhangyi"
-git config --global user.email zy84338719@hotmail.com
+#!/bin/bash
+echo "git 配置"
+echo "git 用户名:"
+read name
+echo "git 邮箱:"
+read mail
+git config --global user.name $name
+git config --global user.email $mail
+git config user.name
+git config user.email
+echo "git 初始化完毕"
