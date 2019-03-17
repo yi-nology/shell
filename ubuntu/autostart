@@ -1,0 +1,3 @@
+#!/bin/zsh
+#蓝牙自动连接
+echo -e 'connect 88:2D:53:01:35:7B' | bluetoothctl
