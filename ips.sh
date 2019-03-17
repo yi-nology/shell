@@ -1,5 +1,6 @@
 #!/bin/zsh
-pidname=$1
+echo "请输入你要结束的进程名"
+read pidname
 PROCESS=`ps -ef|grep $pidname|grep -v grep|grep -v PPID|awk '{ print $2,$9,$10}'`
 
 n=0
