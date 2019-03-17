@@ -1,0 +1,45 @@
+#!/bin/bash
+#脚本完善murphyyi
+port_start=50000
+port_end=60000
+host=$(ifconfig -a|grep inet|grep -v inet6 |grep -v 127| awk '{print $2}' | tr -d "addr:")
+if [ ! -n "$1" ];then
+	port=50000
+else
+	port=$1
+fi
+#当前地址组合
+address="$host:$port"
+
+parm=(command -v python3)
+if [ -n "$parm" ] ;then
+	echo "您当前目录为"
+	pwd
+
+	echo ""
+	#目录循环获取
+	for file in *
+	do
+        	if [ -d "$file" ];then
+                  	echo "$address/$file"
+        	elif [ -f "$file" ];then
+                  	echo "$address/$file"
+        	fi
+	done
+	python3 -m http.server $port
+else
+	echo "警告您的python版本过低，请安装主流版本python3"
+	echo "您当前目录为"
+        pwd
+	echo ""
+	#目录循环获取
+	for file in *
+	do
+        	if [ -d "$file" ];then
+                  	echo "$address/$file"
+        	elif [ -f "$file" ];then
+                  	echo "$address/$file"
+        	fi
+	done
+	python -m SimpleHTTPServer $port
+fi
