@@ -1,0 +1,7 @@
+alias rm=trash
+alias cattrash='ls ~/.trash'
+
+trash()
+{
+    mv $@ ~/.trash/
+}
