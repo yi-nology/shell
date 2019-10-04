@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "VNC启动中"
+x11vnc -forever -shared -rfbauth ~/.vnc/passwd
