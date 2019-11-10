@@ -19,8 +19,14 @@ lstrash()
 cleartrash()
 {
     ls -al ~/.trash
-    read -p "clear trash? [Y/n] " confirm
-    [ $confirm == 'Y' ] || [ $confirm == 'y' ] && /bin/rm -rf ~/.trash/*
+    echo "你确定要删除[y/N]?"
+    read ok
+    if [[ $ok == 'Y' ]];then
+        /bin/rm -rf ~/.Trash/*
+    fi
+    if [[ $ok == 'y' ]];then
+        /bin/rm -rf ~/.Trash/*
+    fi
 }
 
 mv2backup()
