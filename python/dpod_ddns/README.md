@@ -5,8 +5,8 @@
 # 安装
 
 ```shell
-git clone https://github.com/ghosx/qcloud_ddns.git
-cd qcloud_ddns
+git clone https://github.com/zy84338719/shell.git
+cd /shell/python/dpod_ddns
 sudo pip3 install -r requirements.txt
 ```
 
